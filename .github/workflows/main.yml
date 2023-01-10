@@ -21,7 +21,7 @@ jobs:
           echo "CONFIG=$CONFIG" >> $GITHUB_ENV
 
       - name: test
-        run: echo hello
+        run: echo $CONFIG
 
       - name: test2
         run: docker run --help
