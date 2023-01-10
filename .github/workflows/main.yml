@@ -8,18 +8,22 @@ on:
     branches: [main]
 
 jobs:
-  container-test-job:
+  build-deploy:
+    name: Build and deploy app
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout
+
       - name: Set variables
         run: |
           CONFIG=$(cat docsearch-config.json | jq -r tostring)
           echo "CONFIG=$CONFIG" >> $GITHUB_ENV
+
       - name: test
         run: echo hello
+
       - name: test2
-        run: docker run --help 
+        run: docker run --help
 
 # docker run -it --env-file=.env -e "CONFIG=$(cat ./config.json | jq -r tostring)" algolia/docsearch-scrapere
