@@ -16,6 +16,6 @@ jobs:
         uses: actions/checkout@master
 
       - name: scraper
-        run: docker run -it -e "APPLICATION_ID=9RDLHPJLD7" -e "API_KEY=${{ secrets.API_KEY }}" -e "CONFIG=$(cat docsearch-config.json | jq -r tostring)" algolia/docsearch-scraper
+        run: docker run -e "APPLICATION_ID=9RDLHPJLD7" -e "API_KEY=${{ secrets.API_KEY }}" -e "CONFIG=$(cat docsearch-config.json | jq -r tostring)" algolia/docsearch-scraper
 
 # docker run -it --env-file=.env -e "CONFIG=$(cat ./config.json | jq -r tostring)" algolia/docsearch-scraper
